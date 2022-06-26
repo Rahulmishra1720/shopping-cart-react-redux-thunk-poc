@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './component/Header';
+import Login from './component/login';
+import ProductList from './container/productList';
+import FetchProduct from './container/fetchProductById';
+import CartContainer from './container/CartContainer';
+import CheckOut from './component/checkOut';
+import Order from './component/order';
+import Footer from './component/Footer';
+
+import {Route,Routes} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import store from './redux/store'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+    <Header/>
+    <Routes>
+      <Route exact  path='/'  element={<Provider store={store} ><ProductList/></Provider>}></Route>
+      <Route  path='/prodDetail/:id' element={<Provider store={store} ><FetchProduct/></Provider>}></Route>
+      <Route  path='/cart' element={<Provider store={store} ><CartContainer/></Provider>}></Route>
+      <Route  path='/checkout' element={<Provider store={store} ><CheckOut/></Provider>}></Route>
+      <Route  path='/order' element={<Provider store={store} ><Order/></Provider>}></Route>
+     
+      <Route  path='/login' element={<Provider store={store} ><Login/></Provider>}></Route>
+     
+      <Route  path='/login/prodDetail/:id' element={<Provider store={store} ><FetchProduct/></Provider>}></Route>
+      <Route  path='/login/cart' element={<Provider store={store} ><CartContainer/></Provider>}></Route>
+      <Route  path='/login/checkout' element={<Provider store={store} ><CheckOut/></Provider>}></Route>
+      <Route  path='/login/order' element={<Provider store={store} ><Order/></Provider>}></Route>
+       
+    </Routes>
+    <Footer/>
     </div>
   );
 }
