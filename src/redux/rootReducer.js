@@ -1,10 +1,21 @@
-import {combineReducers} from 'redux'
-import {ProductReducer,ProductReducer2,cartReducer,
-        userDetails,loginDetails,islogin,islogout} from "./product/productReducer";
+import { combineReducers } from 'redux'
+import {
+        productReducer,
+        productDetailsReducer,
+        cartReducer,
+        userDetailsReducer,
+        loginDetailsReducer,
+        isLoginReducer,
+        isLogoutReducer
+} from "./product";
 
-const rootReducer=combineReducers({product:ProductReducer,productDetail:ProductReducer2,
-                                    cart:cartReducer,user:userDetails,
-                                    login:loginDetails,islogin:islogin,
-                                    islogout:islogout
-                                })
-export default rootReducer
+const rootReducer = combineReducers({
+        product: productReducer,
+        productDetail: productDetailsReducer,
+        cart: cartReducer,
+        user: userDetailsReducer,
+        login: loginDetailsReducer,
+        islogin: isLoginReducer,
+        islogout: isLogoutReducer
+});
+export default rootReducer;
