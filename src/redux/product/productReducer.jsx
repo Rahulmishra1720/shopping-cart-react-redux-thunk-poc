@@ -24,7 +24,6 @@ function productReducer(state = initialstate, action) {
   }
 };
 
-
 function productDetailsReducer(state = null, action) {
   switch (action.type) {
     case PRODUCT: return action.payload
@@ -54,7 +53,6 @@ function loginDetailsReducer(state = login, action) {
     default: return state
   }
 };
-
 
 function isLoginReducer(state = false, action) {
   switch (action.type) {
@@ -103,7 +101,6 @@ const cartReducer = (state = cart, action) => {
     case EMPTY: return cart;
     default: return state
   }
-
 };
 
 export { productReducer, productDetailsReducer, cartReducer, userDetailsReducer, loginDetailsReducer, isLoginReducer, isLogoutReducer }
